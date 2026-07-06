@@ -1,0 +1,360 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+:root {
+  --bg-color: #f4f6fb;
+  --card-color: #ffffff;
+  --text-color: #222222;
+  --sub-text: #666666;
+  --accent: #6c63ff;
+  --accent-light: #eceaff;
+  --border-color: #e2e2e2;
+}
+
+body.dark {
+  --bg-color: #14161f;
+  --card-color: #1f2230;
+  --text-color: #f0f0f0;
+  --sub-text: #b0b0b0;
+  --accent: #8b83ff;
+  --accent-light: #2a2740;
+  --border-color: #33364a;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.morning .topbar {
+   background: linear-gradient(120deg, #ffe6b3, #ffd1a1); 
+}
+body.afternoon .topbar {
+   background: linear-gradient(120deg, #bfe3ff, #a9d6ff); 
+}
+body.evening .topbar {
+   background: linear-gradient(120deg, #ffc3a0, #ffb0c1); 
+}
+body.night .topbar {
+   background: linear-gradient(120deg, #2c2f48, #1b1d2e); 
+}
+
+body.dark.morning .topbar,
+body.dark.afternoon .topbar,
+body.dark.evening .topbar,
+body.dark.night .topbar {
+  background: linear-gradient(120deg, #23263a, #1a1c2b);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 30px;
+  background: var(--card-color);
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.6s ease;
+}
+
+.logo {
+  font-size: 22px;
+  color: var(--text-color);
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.clock-box {
+  text-align: right;
+  font-size: 14px;
+  color: var(--sub-text);
+}
+
+.theme-btn {
+  background: var(--accent-light);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 25px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--sub-text);
+}
+
+.feature-section {
+  display: none;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  background: var(--card-color);
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+}
+
+.feature-section.active {
+  display: block;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.feature-section h2 {
+  margin-bottom: 20px;
+}
+
+.todo-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.todo-input-row button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.todo-input-row button:hover {
+  opacity: 0.9;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: var(--bg-color);
+}
+
+.todo-list li.done span.task-text {
+  text-decoration: line-through;
+  color: var(--sub-text);
+}
+
+.todo-list li.important {
+  border-left: 4px solid orange;
+}
+
+.task-text {
+  flex: 1;
+  margin-right: 10px;
+  word-break: break-word;
+}
+
+.todo-list li .btn-group {
+  display: flex;
+  gap: 6px;
+}
+
+.todo-list li button {
+  border: none;
+  background: var(--accent-light);
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.goal-progress {
+  margin-bottom: 15px;
+  color: var(--sub-text);
+  font-size: 14px;
+}
+
+.planner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.planner-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.planner-row.current {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.planner-time {
+  width: 70px;
+  font-size: 13px;
+  color: var(--sub-text);
+}
+
+.planner-row input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 13px;
+}
+
+.quote-box {
+  padding: 20px;
+  background: var(--accent-light);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  min-height: 100px;
+}
+
+#quoteText {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+#quoteAuthor {
+  font-size: 14px;
+  color: var(--sub-text);
+  text-align: right;
+}
+
+#quoteBtn, #startBtn, #pauseBtn, #resetBtn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#quoteBtn:hover, #startBtn:hover, #pauseBtn:hover, #resetBtn:hover {
+  opacity: 0.9;
+}
+
+.session-label {
+  color: var(--sub-text);
+  margin-bottom: 10px;
+}
+
+.timer-display {
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--accent);
+}
+
+.timer-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.weather-box {
+  text-align: center;
+  padding: 20px;
+}
+
+#weatherTemp {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: var(--accent);
+}
+
+#weatherCondition {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+#weatherExtra {
+  font-size: 13px;
+  color: var(--sub-text);
+}
+
+@media (max-width: 500px) {
+  .topbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .timer-display {
+    font-size: 45px;
+  }
+}
